@@ -12,7 +12,7 @@ export default function Header(){
 
     return(
 
-        <header className="flex justify-between gap-4 bg-[rgb(242,242,242)]">
+        <header className="flex justify-between gap-4 bg-back">
 
                 {/* LOGO */}
                 <Link to = {'/'} href="" className="flex gap-1 items-center">

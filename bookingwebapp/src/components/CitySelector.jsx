@@ -30,7 +30,7 @@ const CitySelector = () => {
         <div className="relative">
             <select
                 
-                className="p-2 border rounded-full"
+                className="p-2 border rounded-full bg-back"
             >
                 <option value="">Select a City</option>
                 <option value="delhi">Delhi</option>

@@ -25,7 +25,7 @@ export default function MoviePage(){
 
     return (
 
-        <div className="mt-8">
+        <div className="mt-8 bg-back">
 
             <h1 className="text-2xl">
                 {movie.title}

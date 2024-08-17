@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Link, Navigate} from "react-router-dom";
 import axios from "axios";
+import { Button } from "flowbite-react";
 
 export default function RegisterPage(){
 
@@ -44,13 +45,13 @@ export default function RegisterPage(){
 
     return(
 
-        <div className="flex grow items-center justify-around">
+        <div className="flex grow items-center justify-around bg-back">
 
-            <div className="mb-64">
+            <div className="mb-64 ">
 
-                <h1 className="text-2xl text-center p-3">Register</h1>
+                <h1 className="text-2xl text-center p-3  text-black transition-underline duration-500 hover:underline">Register</h1>
 
-                <form className="max-w-md mx-auto" onSubmit={registerUser}>
+                <form className="w-96" onSubmit={registerUser}>
 
                 <input
                         type="text"
@@ -80,8 +81,8 @@ export default function RegisterPage(){
                         onChange={ev => setConfirmPassword(ev.target.value)}
                         required
                     />
-                    <button className="primary">Register</button>
-                    <div className="text-right py-2 text-gray-500">
+                    <Button className=" my-3 transition-transform p-2 w-96 duration-300 transform hover:scale-110"  color="dark" pill >Register</Button>
+                    <div className="text-right py-2 text-black">
                         Already have an account? <Link className="underline text-black" to={'/login'}>Login</Link>
                     </div>
 

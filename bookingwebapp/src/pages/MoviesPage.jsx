@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AccountNavigation from "./AccountNavigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MovieCard from "../components/MovieCard";
 
 export default function MoviesPage() {
     
@@ -47,12 +48,20 @@ export default function MoviesPage() {
 
                 <div className="mt-4">
                     {movies.length > 0 && movies.map(it => (
+
+
+
+                        
                         <Link 
                             key={it._id} 
                             to = {'/account/adminMovies/' + it._id} 
                             className="flex cursor-pointer gap-4 bg-gray-200 p-4">
+                                
+                                <MovieCard title={it.title} year='2000' imageSrc={'http://localhost:4000/uploads/' + it.photos[0]}  quality='1080'link={'/account/adminMovies/' + it._id} >
+                                </MovieCard>
 
-                            <div className="flex w-32 h-40 bg-gray-300 overflow-hidden">
+
+                            {/* <div className="flex w-32 h-40 bg-gray-300 overflow-hidden">
 
                                 {it.photos.length > 0 && (
 
@@ -69,7 +78,7 @@ export default function MoviesPage() {
 
                                 {it.title}
                                 
-                            </h2>
+                            </h2> */}
 
                         </Link>
                     ))}

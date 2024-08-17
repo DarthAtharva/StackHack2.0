@@ -13,6 +13,7 @@ module.exports = {
 
       colors: {
         primary: '#D3D3D3',
+        back:'rgb(242,242,242)'
       },
 
     },
