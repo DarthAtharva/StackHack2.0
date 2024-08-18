@@ -13,6 +13,8 @@ import TheatresFormPage from "./pages/TheatresFormPage";
 import ShowtimesPage from "./pages/ShowtimesPage";
 import ShowtimesFormPage from "./pages/ShowtimeFormPage"
 import MoviePage from "./pages/MoviePage";
+import SuperAdminPage from "./pages/SuperAdminPage";
+import SuperAdminFormPage from "./pages/SuperAdminFormPage";
 
 export default function App() {
 
@@ -45,6 +47,9 @@ export default function App() {
             <Route path = "/account/adminShowtimes" element = {<ShowtimesPage />} />
             <Route path = "/account/adminShowtimes/new" element = {<ShowtimesFormPage />} />
             <Route path = "/account/adminShowtimes/:id" element = {<ShowtimesFormPage />} />
+
+            <Route path = "/account/superAdmin" element = {<SuperAdminPage />} />
+            <Route path = "/account/superAdmin/:id" element = {<SuperAdminFormPage />} />
       
           </Route>
         </Routes>

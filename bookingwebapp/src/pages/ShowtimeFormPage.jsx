@@ -2,7 +2,6 @@ import { useState,useEffect } from "react";
 import AccountNavigation from "./AccountNavigation";
 import axios from "axios";
 import {Navigate, useParams} from "react-router-dom";
-import ErrorBoundary from "../components/ErrorBoundary";
 
 export default function ShowtimesFormPage() {
 

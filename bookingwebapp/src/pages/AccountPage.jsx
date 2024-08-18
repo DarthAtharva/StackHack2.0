@@ -69,7 +69,7 @@ export default function AccountPage(){
                     <ProfileCard className="" userName = {user.name} userEmail = {user.email}></ProfileCard>
 
                     </div>
-                    <Button onClick = {logout} className="my-5 ml-14 transition-transform p-2 w-96 duration-300 transform hover:scale-110"  color="dark" pill >Logout</Button>
+                    <Button onClick = {logout} className=" m-auto my-5 transition-transform p-2 w-96 duration-300 transform hover:scale-110"  color="dark" pill >Logout</Button>
 
                 </div>
             )}
