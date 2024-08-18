@@ -13,7 +13,13 @@ export default function MoviesFormPage() {
     const [length, setLength] = useState('');
     const [genre, setGenre] = useState('');
     const [certificate, setCertificate] = useState('');
-    const [releaseDate, setReleaseDate] = useState('');
+    const [releaseDate, setReleaseDate] = useState(() => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    });;
     const [director, setDirector] = useState('');
     const [description, setDescription] = useState('');
     const [formFillError, setFormFillError] = useState({});

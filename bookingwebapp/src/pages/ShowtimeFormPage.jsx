@@ -11,8 +11,6 @@ export default function ShowtimesFormPage() {
     const [movieName,setmoviename] = useState('');
     const [theatreid,settheatreid] = useState('');
     const [theatreName,settheatrename] = useState('');
-    const [showdate,setdate] = useState([]);
-    const [daytime,settime] = useState([]);
     const [errors, setErrors] = useState({});
     const [movies, setMovies] = useState([]);
     const [theatres, setTheatres] = useState([]);
@@ -20,6 +18,19 @@ export default function ShowtimesFormPage() {
     const [selectedTheatre, setSelectedTheatre] = useState([null]);
     const [redirect,setRedirect] = useState(false);
     const [city,settheatreCity] = useState([]);
+    const [showdate,setdate] = useState(() => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    });
+    const [daytime,settime] = useState(() => {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${hours}:${minutes}`;
+    });;
 
     useEffect(() => {
 
@@ -71,8 +82,8 @@ export default function ShowtimesFormPage() {
 
     function validateForm() {
         const newErrors = {};
-        if (!movieid) newErrors.movieid = 'Movie name is required';
-        if (!theatreid) newErrors.theatreid = 'Theatre name is required';
+        if (!movieid || movieid == 'Select a movie') newErrors.movieid = 'Movie name is required';
+        if (!theatreid || theatreid == 'Select a movie') newErrors.theatreid = 'Theatre name is required';
         if (!showdate || showdate === '') newErrors.showdate = 'showDate is required';
         if (!daytime || daytime === '') newErrors.daytime = 'Time is required';
         if(!city || city == '') newErrors.city = 'city is required';
@@ -159,7 +170,7 @@ export default function ShowtimesFormPage() {
     }
 
     const handleMovieSelect = (event) => {
-        const movieId = event.target.value;
+        const movieId = event.target.value;   
         //console.log(movies);
         const movie = movies.find(m => m._id === movieId);
         setSelectedMovie(movie);
@@ -213,6 +224,8 @@ export default function ShowtimesFormPage() {
                     // name="name" 
                     placeholder="time" 
                     value={daytime} 
+                    
+                    
                     onChange={ev => settime(ev.target.value)} 
                     className={`border ${errors.daytime ? 'border-red-500' : 'border-gray-300'} rounded-lg py-2 px-4 w-full`}
                     // required 

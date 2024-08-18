@@ -40,7 +40,7 @@ export default function TheatresFormPage() {
         const newErrors = {};
         if (!theatreName) newErrors.theatreName = 'Theatre name is required';
         if (!ticketPrice) newErrors.ticketPrice = 'TicketPrice name is required';
-        if (!city) newErrors.city = 'City name is required';
+        if (!city || city == 'Select a city') newErrors.city = 'City name is required';
         if (!rows || rows === '') newErrors.rows = 'Rows is required';
         if (!cols || cols === '') newErrors.cols = 'Cols is required';
         setErrors(newErrors);
