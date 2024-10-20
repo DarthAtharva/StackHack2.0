@@ -11,7 +11,7 @@ export default function MyBookings() {
     const { user } = useContext(UserContext);
    
     useEffect(() => {
-        axios.get('/myTickets/'+user?._id).then(({ data }) => {
+        axios.get('/myTickets').then(({ data }) => {
             setTickets(data);
         }).catch(error => {
             console.error("Failed to fetch tickets", error);
@@ -104,11 +104,10 @@ export default function MyBookings() {
                                     <td className="px-6 py-4">
                                         {ticket.moviePoster && (
                                             <img 
-                                            // src={'http://localhost:4000/uploads/' + ticket.moviePoster} 
-                                            src={`${import.meta.env.VITE_BASE_URL}/uploads/${ticket.moviePoster}`}
-                                            alt={ticket.movieName} 
-                                            className="w-40 h-64 object-cover" />
-
+                                                // src={'http://localhost:4000/uploads/' + ticket.moviePoster} 
+                                                src={`${import.meta.env.VITE_BASE_URL}/uploads/${ticket.moviePoster}`}
+                                                alt={ticket.movieName} 
+                                                className="w-40 h-64 object-cover" />
                                         )}
                                     </td>
                                     <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-primary-50">{ticket.movieName}</td>

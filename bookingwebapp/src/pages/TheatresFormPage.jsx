@@ -7,7 +7,7 @@ export default function TheatresFormPage() {
 
     const {id} = useParams();
     const [theatreName, setName] = useState('');
-    // const [ticketPrice, setTicketPrice] = useState('');
+   
     const [rows, setRows] = useState('');
     const [cols, setCols] = useState('');
     const [city, setCity] = useState('');

@@ -29,7 +29,7 @@ export default function MoviesPage() {
     };
 
     const toggleDetails = (movieId) => {
-        // Toggle the expanded state for the clicked movie
+       
         setExpandedMovieId(expandedMovieId === movieId ? null : movieId);
     };
 
@@ -40,7 +40,7 @@ export default function MoviesPage() {
 
             <div className="text-center">
                 <Link
-                    className="inline-flex gap-1 items-center bg-gray-100 rounded py-2 px-5"
+                    className="addNewButton"
                     to={'/account/adminMovies/new'}
                 >
                     <svg

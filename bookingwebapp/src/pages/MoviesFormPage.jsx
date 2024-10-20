@@ -301,15 +301,7 @@ export default function MoviesFormPage() {
                     </label>
                 </div>
 
-                {/* <h2 className="text-xl mt-2">Languages</h2>
-                <input
-                    type="text"
-                    name="languages"
-                    placeholder="Languages"
-                    value={languages}
-                    onChange={ev => handleChange(ev, setLanguages)}
-                />
-                {formFillError.languages && <div style={{ color: 'red' }}>{formFillError.languages}</div>} */}
+                
 
                 <h2 className="text-xl mt-6 mb-2">Languages</h2>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -349,15 +341,7 @@ export default function MoviesFormPage() {
                 </div>
                 {formFillError.languages && <div style={{ color: 'red' }}>{formFillError.languages}</div>}
 
-                {/* <h2 className="text-xl mt-6 mb-2">Length</h2>
-                <input
-                    type="time"
-                    name="length"
-                    placeholder="Length (HH:MM:SS)"
-                    value={length}
-                    onChange={ev => handleChange(ev, setLength)}
-                />
-                {formFillError.length && <div style={{ color: 'red' }}>{formFillError.length}</div>} */}
+               
                 <h2 className="text-xl mt-6 mb-2">Length</h2>
                 <div className="flex gap-2">
                     <input
@@ -393,15 +377,7 @@ export default function MoviesFormPage() {
                 </div>
                 {formFillError.length && <div style={{ color: 'red' }}>{formFillError.length}</div>}
 
-                {/* <h2 className="text-xl mt-2">Genre</h2>
-                <input
-                    type="text"
-                    name="genre"
-                    placeholder="Genre"
-                    value={genre}
-                    onChange={ev => handleChange(ev, setGenre)}
-                />
-                {formFillError.genre && <div style={{ color: 'red' }}>{formFillError.genre}</div>} */}
+                
 
                 <h2 className="text-xl mt-6 mb-2">Genre</h2>
                 <div className="flex flex-wrap gap-2 mb-4">

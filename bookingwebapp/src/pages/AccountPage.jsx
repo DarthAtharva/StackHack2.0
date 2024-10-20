@@ -34,10 +34,7 @@ export default function AccountPage(){
 
     async function logout(){
 
-        // await axios.post('/logout', {}, { withCredentials: true });
-        // // await axios.post('/logout');
-        // setRedirect('/');
-        // setUser(null);
+       
 
         try {
 

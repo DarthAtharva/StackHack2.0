@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "../UserContext";
 
 export default function AccountNavigation() {
   const [userRole, setUserRole] = useState('');
-
+  const {ready, user, setUser} = useContext(UserContext);
   const { pathname } = useLocation();
   let subpage = pathname.split('/')?.[2];
   if (subpage === undefined) {
     subpage = 'profile';
   }
 
+ 
+
   useEffect(() => {
-    const fetchUserRole = async () => {
-      try {
-        const response = await axios.get('/profile');
-        setUserRole(response.data.role);
-      } catch (error) {
-        console.error('Error fetching user role:', error);
-      }
-    };
-    fetchUserRole();
-  }, []);
+    if (ready && user) {  
+      setUserRole(user.role);
+    }
+  }, [ready, user]); 
+
 
   const linkClasses = (page) => {
     return page === subpage
@@ -31,7 +29,7 @@ export default function AccountNavigation() {
 
   return (
     <nav className="flex items-center justify-between mb-8 mt-12 md:flex-row md:justify-center md:gap-5 font-medium">
-      {/* Links for larger screens */}
+     
       <div className="hidden md:flex gap-3">
         <Link className={linkClasses('profile')} to={'/account'}>My Account</Link>
         {userRole === 'admin' && (

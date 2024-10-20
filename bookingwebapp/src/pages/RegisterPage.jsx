@@ -44,52 +44,7 @@ export default function RegisterPage(){
 
     return(
 
-        // <div className="flex grow items-center justify-around">
-
-        //     <div className="mb-64">
-
-        //         <h1 className="text-2xl text-center p-3">Register</h1>
-
-        //         <form className="max-w-md mx-auto" onSubmit={registerUser}>
-
-        //         <input
-        //                 type="text"
-        //                 placeholder="Name"
-        //                 value={name}
-        //                 onChange={ev => setName(ev.target.value)}
-        //                 required
-        //             />
-        //             <input
-        //                 type="email"
-        //                 placeholder="Email"
-        //                 value={email}
-        //                 onChange={ev => setEmail(ev.target.value)}
-        //                 required
-        //             />
-        //             <input
-        //                 type="password"
-        //                 placeholder="Password"
-        //                 value={password}
-        //                 onChange={ev => setPassword(ev.target.value)}
-        //                 required
-        //             />
-        //             <input
-        //                 type="password"
-        //                 placeholder="Confirm Password"
-        //                 value={confirmPassword}
-        //                 onChange={ev => setConfirmPassword(ev.target.value)}
-        //                 required
-        //             />
-        //             <button className="primary">Register</button>
-        //             <div className="text-right py-2 text-gray-500">
-        //                 Already have an account? <Link className="underline text-black" to={'/login'}>Login</Link>
-        //             </div>
-
-        //         </form>
-
-        //     </div>
-
-        // </div>
+       
 
         <section class="bg-gray-50 dark:bg-gray-900">
 
@@ -97,7 +52,7 @@ export default function RegisterPage(){
 
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                     <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo"/>
-                    StackHack
+                    Mise-en-Movie
                 </a>
 
                 <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

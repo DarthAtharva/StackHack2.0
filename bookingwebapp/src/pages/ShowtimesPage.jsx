@@ -6,22 +6,14 @@ import { format, parse } from 'date-fns';
 
 export default function ShowtimesPage() {
     const [showtimes, setShowtimes] = useState([]);
-    const [sortBy, setSortBy] = useState('movieName'); // Default sorting by movieName
+    const [sortBy, setSortBy] = useState('movieName'); 
 
     useEffect(() => {
         axios.get('/adminShowtimes').then(({ data }) => {
             setShowtimes(data);
         });
 
-        // Uncomment these lines if needed
-        // axios.get('/adminTheatres/:'+ theatreid).then(({ data }) => {
-        //     settheatrename(data.theatreName);
-        // });
-
-        // axios.get('/adminMovies/:'+ movieid).then(({ data }) => {
-        //     setmovietitle(data.title);
-        //     setmoviephotos(data.photos);
-        // });
+        
     }, []);
 
     const formatReleaseDate = (dateString) => {
@@ -51,7 +43,7 @@ export default function ShowtimesPage() {
 
             <div className="text-center">
                 <Link
-                    className="inline-flex gap-1 items-center bg-gray-100 rounded py-2 px-5"
+                    className="addNewButton"
                     to={'/account/adminShowtimes/new'}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

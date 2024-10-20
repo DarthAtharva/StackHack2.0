@@ -8,16 +8,21 @@ export function CityContextProvider({children}){
     const [city, setCity] = useState(null);
     const [ready,setReady] = useState(false);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        axios.get('/profile').then(({ data }) => {
+        
+    //     try{
+    //         axios.get('/profile').then(({ data }) => {
+    
+    //             setCity(data.city || null); 
+    //             setReady(true);
+                
+    //         });
+    //     }catch(error){
+    //         setCity(null);
+    //     }
 
-            setCity(data.city || null); 
-            setReady(true);
-            
-        });
-
-    }, []);
+    // }, []);
 
     return(
 

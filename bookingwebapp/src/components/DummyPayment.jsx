@@ -28,10 +28,10 @@ const DummyPayment = ({ onPaymentSuccess, onCancel }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg mt-4">
       <h2 className="text-lg font-medium mb-4">Enter Payment Details</h2>
       <form onSubmit={handlePayment}>
-        <div className="mb-4">
+        <div className="mb-4 bg-transparent">
           <input
             type="text"
             name="cardNumber"
@@ -66,13 +66,13 @@ const DummyPayment = ({ onPaymentSuccess, onCancel }) => {
           <button
             type="button"
             onClick={onCancel}
-            className="bg-gray-500 text-white px-4 py-2 rounded-lg"
+            className="bg-red-500 text-white px-4 py-2 rounded-lg"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="bg-indigo-600 text-white px-6 py-2 rounded-lg"
+            className="bg-primary-600 dark:bg-primary-700 text-white px-6 py-2 rounded-lg"
           >
             Pay Now
           </button>
