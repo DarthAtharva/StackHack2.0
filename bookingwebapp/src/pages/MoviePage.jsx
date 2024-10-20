@@ -37,13 +37,14 @@ export default function MoviePage(){
     
         <section className="mt-4 mb-10">
 
-            <div className="w-full h-[30rem] bg-primary-950 flex items-center">
+            <div className="flex w-full h-[30rem] bg-primary-950 items-center">
 
+                {/* Poster */}
                 <div className="ml-10 h-96 w-64 bg-gray-800">
                     <img 
                         // src={'http://localhost:4000/uploads' + movie.photos[0]} 
                         src={`${import.meta.env.VITE_BASE_URL}/uploads${movie.photos[0]}`}
-                        alt={movie.title} 
+                        alt={movie.title}
                         className="rounded-lg object-cover w-full h-full drop-shadow-2xl"/>
                
                 </div>
@@ -57,7 +58,7 @@ export default function MoviePage(){
                     </h1>
 
                     {/* Bottom Info*/}
-                    <div>
+                    <div className="mr-10">
 
                         {/* Language Tags */}
                         <div className="flex">
@@ -70,7 +71,7 @@ export default function MoviePage(){
                         </div>
 
                         {/* Others */}
-                        <div className="flex gap-2 mx-2 text-primary-50 mt-3 text-lg font-thin">
+                        <div className="flex gap-2 text-primary-50 mt-3 text-lg font-thin">
 
                             {formatTime(movie.length)}
                             
@@ -94,7 +95,7 @@ export default function MoviePage(){
 
                         {/* Button */}
                         <Link
-                            className="ml-2 mt-4 inline-flex gap-1 items-center bg-orange-400 rounded py-2 px-8 text-xl text-primary-50 font-medium"
+                            className="mt-4 inline-flex gap-1 items-center bg-orange-400 rounded py-2 px-8 text-xl text-primary-50 font-medium"
                             to = {'/movie/book/' + id}> 
 
                             Book
@@ -107,7 +108,8 @@ export default function MoviePage(){
 
             </div>
 
-            <div className="ml-10 mt-6 dark:text-primary-50">
+            {/* About */}
+            <div className="mx-10 mt-6 dark:text-primary-50">
 
                 <h2 className="text-2xl font-medium mb-2 dark:text-primary-400">About the movie</h2>
                 <div className="mb-6">

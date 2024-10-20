@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-import DummyPayment from "./DummyPayment";
+import { Navigate } from 'react-router-dom'; 
+import DummyPayment from "./DummyPayment"; 
 import { format, parse } from 'date-fns';
 import { UserContext } from "../UserContext";
 
@@ -12,11 +12,10 @@ const SeatSelector = (props) => {
   const [selectedSeatIds, setSelectedSeatIds] = useState([]);
   const [bookedSeats, setBookedSeats] = useState([]);
   const [showPayment, setShowPayment] = useState(false);
-  const [redirect, setRedirect] = useState(false);
+  const [redirect, setRedirect] = useState(false); 
   const [movieTitle, setMovieTitle] = useState('');
   const [theatreName, setTheatreName] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
-  const { user, ready } = useContext(UserContext);
+  const { user, ready } = useContext(UserContext); // Use UserContext
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -30,6 +29,7 @@ const SeatSelector = (props) => {
         const theatreResponse = await axios.get(`/theatres/${showtime.theatreid}`);
         setTheatreName(theatreResponse.data.theatreName);
         
+       
         await fetchBookedSeatsAndGenerateSeats();
       } catch (error) {
         console.error("Failed to fetch details:", error);
@@ -97,7 +97,6 @@ const SeatSelector = (props) => {
   const bookingHandler = async () => {
     try {
       const response = await axios.post('/bookTicket', {
-        userId: user?._id,
         chooseShowtimeId: props.chooseShowtimeId,
         chooseTime: props.chooseTime,
         selectedSeatIds,
@@ -107,16 +106,18 @@ const SeatSelector = (props) => {
       if (response.status === 200) {
         const { booking_code, seatNumbers } = response.data;
 
+        // Email details
         const emailDetails = {
           booking_code,
           seatNumbers,
-          userEmail: user?.email,
-          userName: user?.name,
+          userEmail: user?.email, 
+          userName: user?.name, 
           movieTitle,
           theatreName,
           chooseTime: props.chooseTime
         };
 
+       
         await sendBookingConfirmationEmail(emailDetails);
 
         alert("Ticket successfully booked and confirmation email sent!");
@@ -127,12 +128,11 @@ const SeatSelector = (props) => {
       }
     } catch (error) {
       console.error("Failed to book tickets:", error);
-      alert("Failed to book tickets!");
-    } finally {
-      setIsLoading(false); // Stop loading
+      alert("Failed to book tickets! Are you logged out?");
     }
   };
 
+  
   const sendBookingConfirmationEmail = async (emailDetails) => {
     try {
       const response = await axios.post('/sendBookingConfirmationEmail', emailDetails);
@@ -146,12 +146,11 @@ const SeatSelector = (props) => {
   };
 
   const handleBookNowClick = () => {
-    setShowPayment(true);
+    setShowPayment(true); 
   };
 
   const handlePaymentSuccess = () => {
-    setShowPayment(false);
-    setIsLoading(true); // Start loading
+    setShowPayment(false); 
     bookingHandler();
   };
 
@@ -169,34 +168,32 @@ const SeatSelector = (props) => {
   };
 
   return (
-    <section className="items-center py-4 px-10 dark:bg-gray-950 relative">
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-        </div>
-      )}
+    <section className="items-center py-4 px-10 dark:bg-gray-950">
 
-      <div className={`flex flex-col items-center font-bold ${isLoading ? 'blur-sm' : ''}`}>
+      <div className="flex flex-col items-center font-bold">
         <h2>SCREEN</h2>
         <span className="text-primary-600">{formatTimeTo12Hour(props.chooseTime)}</span>
       </div>
 
       <div
-        className={`custom-scrollbar flex flex-col items-center overflow-auto py-16 px-10 ${isLoading ? 'blur-sm' : ''}`}
+        className="custom-scrollbar flex flex-col items-center overflow-auto py-16 px-10" 
         style={{
-          maxWidth: '80vw',
+          maxWidth: '80vw', 
           maxHeight: '60vh',
           minWidth: '30vw'
         }}
       >
+
         <h2 className="font-light text-sm mb-2"> Rs. {props.ticketPrice}</h2>
         <div
-          className="grid gap-0 w-max border-t"
+          className="grid gap-0 w-max border-t" 
           style={{
             gridTemplateColumns: `repeat(${props.cols}, minmax(0, 1fr))`,
           }}
         >
+          
           {seats.map((seat, index) => (
+
             <label
               key={seat.id}
               className={`relative flex w-7 h-7 m-2 rounded-md cursor-pointer duration-200 items-center justify-center text-xs font-light  ${
@@ -216,19 +213,20 @@ const SeatSelector = (props) => {
               />
 
               <span className="absolute text-xs font-light text-gray-700 dark:text-primary-100">{seat.id}</span>
+
             </label>
           ))}
-        </div>
-      </div>
 
-      <div className={`mt-3 ${isLoading ? 'blur-sm' : ''}`}>
+        </div>
+
+        <div className="mt-3 w-full">
         {showPayment ? (
           <DummyPayment
             onPaymentSuccess={handlePaymentSuccess}
             onCancel={handlePaymentCancel}
           />
         ) : (
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-6">
             <div className="font-light dark:text-primary-50">
               <span><strong>Tickets:</strong> {selectedSeats}</span>
               <div className="">
@@ -245,7 +243,7 @@ const SeatSelector = (props) => {
                 disabled={selectedSeats === 0}
                 className={`px-6 py-3 rounded-md shadow-md transition duration-300 font-semibold ${
                   selectedSeats === 0
-                    ? "bg-gray-400 cursor-not-allowed"
+                    ? "bg-gray-400 cursor-not-allowed" 
                     : "bg-primary-800 text-white hover:bg-orange-400"
                 }`}
               >
@@ -255,6 +253,9 @@ const SeatSelector = (props) => {
           </div>
         )}
       </div>
+
+      </div>
+
     </section>
   );
 };

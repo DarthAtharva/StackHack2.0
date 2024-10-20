@@ -21,6 +21,10 @@ button{
     @apply bg-gray-300;
 }
 
+.addNewButton {
+    @apply inline-flex gap-1 items-center bg-primary-700 text-primary-50 rounded py-2 px-5;
+}
+
 /* button.primary{
     @apply bg-primary p-2 w-full text-white rounded-lg; 
 } */

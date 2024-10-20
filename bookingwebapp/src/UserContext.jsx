@@ -15,7 +15,7 @@ export function UserContextProvider({children}){
 
             axios.get('/profile').then(({data}) => {
 
-                setUser(data);
+                setUser(data || null);
                 setReady(true);
 
             });

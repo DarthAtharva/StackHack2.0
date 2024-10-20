@@ -42,7 +42,7 @@ export default function ShowtimesFormPage() {
             settime(data.daytime || []);
             settheatreCity(data.city);
 
-            /* AND EXTRA SETS */
+      
 
         });
 
@@ -51,7 +51,7 @@ export default function ShowtimesFormPage() {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const response = await axios.get('/adminMovies');  //gives whole movie object
+                const response = await axios.get('/adminMovies');  
                 setMovies(response.data);
             } catch (error) {
                 console.error('Error fetching movies:', error);
@@ -63,7 +63,7 @@ export default function ShowtimesFormPage() {
     useEffect(() => {
         const fetchTheatres = async () => {
             try {
-                const response = await axios.get('/adminTheatres');  //gives whole movie object
+                const response = await axios.get('/adminTheatres');  
                 setTheatres(response.data);
             } catch (error) {
                 console.error('Error fetching movies:', error);

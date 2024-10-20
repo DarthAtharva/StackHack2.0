@@ -11,17 +11,16 @@ lerna-debug.log*
 bookingwebapp/node_modules/
 api/node_modules/
 
+# Uploads
+api/uploads/
+
 # Environment variables
 bookingwebapp/.env
-bookingwebapp/.env.local
-bookingwebapp/.env.*.local
 api/.env
-api/.env.local
-api/.env.*.local
 
 # Build output
-bookingwebapp/dist/
-api/dist/
+bookingwebapp/dist
+api/dist
 
 # Editor directories and files
 .vscode/*

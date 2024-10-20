@@ -8,7 +8,7 @@ import './App.css'
 import axios from "axios";
 
 import { UserContextProvider } from "./UserContext";
-import { CityContextProvider } from "./CityContext";
+// import { CityContextProvider } from "./CityContext";
 
 import AccountPage from "./pages/AccountPage";
 import MoviesPage from "./pages/MoviesPage";
@@ -20,20 +20,19 @@ import ShowtimesFormPage from "./pages/ShowtimeFormPage"
 import SuperAdminPage from "./pages/SuperAdminPage"
 // import SuperAdminFormPage from "./pages/SuperAdminFormPage"
 import MyBookings from "./pages/MyBookings";
-
 import MoviePage from "./pages/MoviePage";
 import ReservationFormPage from "./pages/ReservationFormPage";
 
+import SupportComponent from "./components/SupportComponent";
 export default function App() {
 
-  // axios.defaults.baseURL = 'http://localhost:4000';
   axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
   axios.defaults.withCredentials = true;
 
   return (
     
     <UserContextProvider>
-      <CityContextProvider>
+      {/* <CityContextProvider> */}
 
         <Router>
           <Routes>
@@ -60,7 +59,6 @@ export default function App() {
             <Route path = "/account/adminShowtimes/:id" element = {<ShowtimesFormPage />} />
 
             <Route path = "/account/superAdmin" element = {<SuperAdminPage />} />
-            {/* <Route path = "/account/superAdmin/:id" element = {<SuperAdminFormPage />} /> */}
 
             <Route path = "/account/myBookings" element = {<MyBookings />} />
 
@@ -68,9 +66,10 @@ export default function App() {
 
           </Route>
         </Routes>
+        <SupportComponent />
       </Router>
 
-      </CityContextProvider>
+      {/* </CityContextProvider> */}
     </UserContextProvider>
     
   );

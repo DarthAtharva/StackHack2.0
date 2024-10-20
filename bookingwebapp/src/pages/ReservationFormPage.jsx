@@ -38,7 +38,7 @@ export default function ReservationFormPage() {
 
     useEffect(() => {
         if (chooseCity && chooseShowDate) {
-            findMovie(); // Automatically update showtimes when city or date changes
+            findMovie(); 
         }
     }, [chooseCity, chooseShowDate]);
 
@@ -88,7 +88,7 @@ export default function ReservationFormPage() {
     }
 
     const handleDateSelect = (date) => {
-        setChooseShowDate(date || new Date()); // Default to today's date if no date is selected
+        setChooseShowDate(date || new Date()); 
     };
 
     const closeModal = () => {
@@ -119,7 +119,7 @@ export default function ReservationFormPage() {
                 </div>   
 
                 {/* City + Date */}
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mt-6">
 
                     <div>
                         <select
@@ -130,8 +130,8 @@ export default function ReservationFormPage() {
                         >
                             <option value="">Select a city</option>
                             {cities.map(cityName => (
-                                <option key={cityName} value={cityName}>
-                                    {cityName}
+                                <option key={cityName} value={cityName} className="uppercase">
+                                    {cityName.toUpperCase()}
                                 </option>
                             ))}
                         </select>
@@ -155,7 +155,7 @@ export default function ReservationFormPage() {
                                 className="flex items-center border-b border-primary-800 py-4"
                                 key={it._id}>
                                 <div className="font-bold text-sm w-80 dark:text-primary-200">{it.theatreName}</div> <br />
-                                {/* <strong>Date:</strong> {new Date(it.showdate).toLocaleDateString()} <br /> */}
+                               
                                 <br />
 
                                 {Array.isArray(it.daytime) && it.daytime.length > 0 ? (
