@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { CityContext } from '../CityContext';
 
 const CitySelector = () => {
-    const { city, setCity } = useContext(CityContext);
+    const { city, setCity } = useState();
 
     const handleChange = (event) => {
         setCity(event.target.value); // Update city context

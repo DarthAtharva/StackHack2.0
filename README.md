@@ -59,29 +59,6 @@ Ensure you have the following installed:
    npm install
    ```
 
-### Environment Variables
-
-Set up the following environment variables for the project:
-
-#### For Backend (`api`):
-
-```plaintext
-PORT=4000
-MONGO_URL=mongodb+srv://22ucs038:22ucs038@cluster0.lbamc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=wewillwinthishackathon
-EMAIL_PASS='aiwg jecg lzpx gcno'
-EMAIL=ysharmaa09@gmail.com
-FRONTEND_URL=http://localhost:5173
-```
-
-#### For Frontend (`bookingwebapp`):
-
-```plaintext
-VITE_BASE_URL=http://localhost:4000
-```
-
-## Usage
-
 ### Running the Application
 
 - **Frontend**:
@@ -128,11 +105,3 @@ VITE_BASE_URL=http://localhost:4000
 - **View Movie Details**: Click on any movie to see its description and book tickets.
 - **Book a Showtime**: Select a showtime, choose seats, and proceed to payment.
 - **Dummy Payment**: Enter any value for "Card Number," "Expiry Date," and "CVV" to simulate payment. You must be logged in to book a ticket.
-
-## Testing the  customer Feature:
-Step1:Click on Mise-en-Movie logo on the top left to go to the main page.
-Step2:Click on movie named "Bliss" and on the next page click on book.
-Step3:Choose Date "30 sept" and city "Jaipur".
-Step4:Choose the showtime available that day and you will open a seat selector in which you can select seats and pay for them using dummy payment gateway.
-Step5: Fill any random details in the dummy payment and click "Pay Now" button.
-Step6: Go to "My Bookings" to find your tickets.

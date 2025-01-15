@@ -32,7 +32,10 @@ app.use('/uploads', express.static(__dirname+'/uploads'));
 app.use(cors({
 
     credentials: true,
-    origin: process.env.FRONTEND_URL,
+    origin: [
+        process.env.FRONTEND_URL,
+        'https://mise-en-movie.vercel.app'
+    ] 
 
 }));
 

@@ -8,7 +8,7 @@ import './App.css'
 import axios from "axios";
 
 import { UserContextProvider } from "./UserContext";
-import { CityContextProvider } from "./CityContext";
+// import { CityContextProvider } from "./CityContext";
 
 import AccountPage from "./pages/AccountPage";
 import MoviesPage from "./pages/MoviesPage";
@@ -32,7 +32,7 @@ export default function App() {
   return (
     
     <UserContextProvider>
-      <CityContextProvider>
+      {/* <CityContextProvider> */}
 
         <Router>
           <Routes>
@@ -69,7 +69,7 @@ export default function App() {
         <SupportComponent />
       </Router>
 
-      </CityContextProvider>
+      {/* </CityContextProvider> */}
     </UserContextProvider>
     
   );
